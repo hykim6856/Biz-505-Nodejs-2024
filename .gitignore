@@ -22,7 +22,7 @@ build/
 
 # eclipse project folder
 tmp/
-bin/
+# bin/
 target/
 .target/
 .settings/
