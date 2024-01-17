@@ -1,0 +1,58 @@
+h1.student {
+  padding: 1.1rem;
+  color: greenyellow;
+  width: 80%;
+  margin: 20px auto;
+}
+
+table.student {
+  border: 1px solid green;
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  /* border: 1px solid red; */
+  text-align: center;
+  padding: 12px 16px;
+  white-space: nowrap;
+
+  cursor: pointer;
+  border-bottom: 1px solid #777;
+}
+
+td {
+  padding: 15px;
+}
+
+th {
+  border-top: 1px solid #777;
+}
+th:last-of-type(),
+td:last-of-type() {
+  border-right: none;
+}
+
+div.btn_box {
+  width: 80%;
+  text-align: right;
+  margin: 30px;
+}
+
+div.student {
+  text-align: right;
+}
+
+div a {
+  display: inline-block;
+  padding: 12px 16px;
+  background-color: blue;
+  color: white;
+  border-radius: 15px;
+}
+
+div a:hover {
+  background-color: aqua;
+}

@@ -1,0 +1,22 @@
+h1 {
+  text-align: center;
+  justify-content: center;
+  /* width: 80%; */
+}
+form {
+  width: 50%;
+  margin: 10px auto;
+}
+
+form input,
+form button {
+  display: block;
+  width: 100%;
+  margin: 10px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+form button:hover {
+  background-color: #777;
+}
