@@ -41,6 +41,13 @@ div.btn_box {
   margin: 30px;
 }
 
+tr:hover {
+  background-color: #ddd;
+}
+tr:nth-of-type(odd) {
+  background-color: #eee;
+}
+
 div.student {
   text-align: right;
 }
