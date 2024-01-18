@@ -42,9 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 여러개의 tag 묶음을 배열로 만들기
   const error_divs = document.querySelectorAll("div.student.error");
 
-  const st_num_valid = async () => {
+  const st_num_valid = async (target) => {
     //result 에는 에러, 있다 없다 중의 한가지 문자열이 저장된다.
-    const result = await st_num_check(st_num.value);
+    const result = await st_num_check(target.value);
     let message = "";
     let color = "red";
     if (result === "ERROR") {
@@ -58,11 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     error_divs[ST_INDEX.ST_NUM].innerHTML = message;
     error_divs[ST_INDEX.ST_NUM].style.color = color;
-    if (color === "red") {
-      st_num.select();
-      return false;
-    }
-    return true;
+    // if (color === "red") {
+    //   st_num.select();
+    //   return false;
+    // }
+    // return true;
+    //컬러 값이 빨강이면 트루, 아니면 false를 리턴한다.
+    return color === "red";
   };
 
   /**
@@ -79,8 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
       st_num.select();
       return false;
     } else {
-      const bYes = st_num_valid();
-      if (!bYes) return false;
+      const bRedYes = st_num_valid(st_num);
+      if (!bRedYes) {
+        st_num.select();
+        return false;
+      }
     }
     if (!st_name.value) {
       error_divs[ST_INDEX.ST_NAME].innerHTML = "* 학생의 이름은 반드시 입력해야 합니다";
@@ -104,7 +109,8 @@ document.addEventListener("DOMContentLoaded", () => {
    * input box 에 focus()가 있다가 다른 곳으로 focus()가 이동하는 순간
    * 발생하는 event
    */
-  st_num?.addEventListener("blur", (event) => {
+  let EVEMT_ST_NUM = false;
+  st_num?.addEventListener("blur", async (event) => {
     const target = event.target;
     const value = target.value;
     if (!value) {
@@ -113,14 +119,26 @@ document.addEventListener("DOMContentLoaded", () => {
       target.select();
       return false;
     } else {
-      const bYes = st_num_valid();
-      if (!bYes) return false;
+      const bRedYes = st_num_valid(st_target);
+      if (!bRedYes) {
+        target.select();
+        return false;
+      }
     }
+    //유효성검사가 끝났다는 클래스
+    EVEMT_ST_NUM = true;
   });
 
   st_name.addEventListener("blur", (event) => {
+    //ST_NUM 에서 유효성검사가 끝나지 않았으면 (false ) 더 진행시키지 말라
+    if (!EVEMT_ST_NUM) return false;
     const target = event.target;
     const value = target.value;
+    if (!value) {
+      error_divs[ST_INDEX.ST_NAME].innerTEXT = "이름을 입력해주세요";
+      st_name.select();
+      return false;
+    }
   });
 
   st_num.focus;
