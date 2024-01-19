@@ -1,0 +1,31 @@
+extends ../layout
+
+//- div 테스트23
+block content
+    //- h1 MY READ BOOK 2024
+
+    link(rel="stylesheet", href="/css/list.css")
+    script(src="/js/list.js")
+    table.book.list 
+        thead 
+            tr
+                th No.
+                th ISBN
+                th 도서명
+                th 저자
+                th 출판사
+                th 가격
+                th 할인가
+        tbody
+            each item,index in stList
+                tr
+                    td #{index+1}
+                    td= item.isbn
+                    td= item.title 
+                    td= item.author
+                    td= item.publisher
+                    td= item.price
+                    td= item.discount
+
+    div.book.btn_box 
+        a(href="/bookList/insert") 도서등록

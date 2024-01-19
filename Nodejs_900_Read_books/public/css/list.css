@@ -1,0 +1,52 @@
+.book {
+  width: 80%;
+  margin: 5px auto;
+  /* display: block; */
+}
+
+table.book {
+  margin: 20px auto;
+  white-space: nowrap;
+  border-collapse: collapse;
+  border-top: 3px solid #bbb;
+  border-bottom: 3px solid #bbb;
+}
+
+th,
+td {
+  border-bottom: 1px solid #bbb;
+  padding: 12px 16px;
+  text-align: center;
+}
+
+th {
+  border-top: 1px solid #bbb;
+  background-color: #eee;
+}
+
+tr:hover {
+  cursor: pointer;
+  background-color: #f5f5f5;
+}
+
+th:nth-last-of-type(1),
+td:nth-last-of-type(1) {
+  border-right: none;
+}
+
+div.book {
+  text-align: right;
+}
+
+div.book a {
+  display: inline-block;
+  padding: 8px 18px;
+  background-color: #555;
+  color: white;
+  border-radius: 3px;
+}
+
+div.book a:hover {
+  background-color: #777;
+  box-shadow: inset 3px 3px 3px #555;
+}
