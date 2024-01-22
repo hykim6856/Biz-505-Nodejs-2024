@@ -4,6 +4,7 @@ views/books/main.pug 와 연결된 css
 */
 
 section.books {
+  overflow: auto;
   display: flex;
   flex: 1;
 }
@@ -38,4 +39,20 @@ article.body {
   flex: 5;
   border: 1px solid green;
   height: 100%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 768px) {
+  section.books {
+    flex-direction: column;
+  }
+  aside {
+    flex: 0;
+    flex-direction: row;
+    padding-top: 0;
+    a {
+      text-align: center;
+      font-size: 1rem;
+    }
+  }
 }

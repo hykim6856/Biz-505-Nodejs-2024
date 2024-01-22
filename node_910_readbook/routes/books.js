@@ -9,19 +9,50 @@ const router = express.Router();
 let dbConn = null;
 // init () 함수에 async 가 설정되어있어 동기식으로 작동된다.
 // 이 함수의 return 값을 받기 위해서는 then 함수를 통하여 받아야한다.
-DB.init().then((connection) => (dbConn = connection));
+DB.init().then((connection) => {
+  dbConn = connection;
+});
+// console.log("dbConn", dbConn);
 
 router.get("/", (req, res) => {
   const sql = "SELECT * FROM tbl_books";
   dbConn
     .query(sql)
     .then((rows) => {
-      return res.render("books/main", { books: rows });
+      // console.log(rows);
+      return res.render("books/list", { books: rows[0] });
     })
     .catch((err) => {
-      return res.json(err);
+      return res.render("db_error", err);
     });
   // return res.render("books/main");
+});
+
+router.get("/insert", (req, res) => {
+  return res.render("books/input");
+});
+
+router.post("/insert", (req, res) => {
+  // mysql dependency 도구가 지원하는 확장된 도구 insert 구문
+  // 이 sql 은 표준 sql이 아님
+  const sql = " INSERT INTO tbl_books SET ?";
+  const params = {
+    isbn: req.body.isbn,
+    title: req.body.title,
+    publisher: req.body.publisher,
+    author: req.body.author,
+    price: Number(req.body.price), //문자열형숫자를 실제 숫자로 바꿔주는함수
+    discount: req.body.discount,
+  };
+  // return res.json(params);
+  dbConn
+    .query(sql, params)
+    .then((_) => {
+      return res.redirect("/books");
+    })
+    .catch((err) => {
+      return res.render("db_error", err);
+    });
 });
 
 export default router;
