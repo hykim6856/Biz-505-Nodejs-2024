@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (menu_text === "회원가입") {
         url = "/user/join";
       }
+      document.location.href = url;
     }
   });
 });

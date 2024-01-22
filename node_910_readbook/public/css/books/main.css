@@ -13,7 +13,7 @@ aside {
   border: 1px solid blue;
   display: flex;
   flex-direction: column;
-  padding-top: 50%;
+  padding-top: 50px;
   background-color: #e5f1e5;
   /* aside 가 flex 이므로 a tag 는 flex-item 이 되고, inline-block 성질을 갖는다.
 따라서 width 가 적용이 된다 */
