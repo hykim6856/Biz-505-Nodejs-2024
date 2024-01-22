@@ -1,5 +1,8 @@
 import { createConnection } from "mysql2";
 import mysql from "mysql2/promise";
+/**
+ * 디비 접속 정보를 다시 설정하고 이파일을 마이 에스큐엘.자스 로 이름변경후 프로젝트를 실행할것
+ */
 const mysql_info = {
   host: "localhost",
   post: "3306",

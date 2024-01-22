@@ -7,28 +7,28 @@ block content
     h3.book #{STD ? "도서 정보 수정" : ""}
  
     form.book.input(method="POST")
-        div.box.one
-            div.one
+        div.box
+            div.container
                 if STD 
                     input#isbn(name="isbn", placeholder="ISBN",value=`${STD ? STD.isbn : ""}`,readonly="readonly")
                 else 
                     input#isbn(name="isbn", placeholder="ISBN",value=`${STD ? STD.isbn : ""}`)
                 div.book.error.isbn
-            div.one
+            div.container
                 input#publisher(name="publisher",placeholder="출판사",value=`${STD ? STD.publisher : ""}`)
                 input#author(name="author",placeholder="저자",value=`${STD ? STD.author : ""}`)
                 input#author1(name="author2",placeholder="역자",value=`${STD ? STD.author : ""}`)
-            div.one
+            div.container
                 input#pubdate(name="pubdate",placeholder="발행일", type="date",value=`${STD ? STD.discount : ""}`)
                 input#page(name="page",placeholder="페이지", type="number",value=`${STD ? STD.discount : ""}`)
-        div.box.two
-            div.two
+        div.box
+            div.container
                 input#title(name="title",placeholder="도서명",value=`${STD ? STD.title : ""}`)
                 div.book.error.title
-            div.two
+            div.container
                 input#price(name="price",placeholder="가격",type="number",value=`${STD ? STD.price : ""}`)
                 input#discount(name="discount",placeholder="할인가", type="number",value=`${STD ? STD.discount : ""}`) 
-            div.two
+            div.container
                 input#descriptions(name="descriptions",placeholder="메모", type="text",value=`${STD ? STD.discount : ""}`)
         div.btn_box
             button(type=`${STD ? "submit" : "button"}`) 저장
