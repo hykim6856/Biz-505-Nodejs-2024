@@ -1,9 +1,9 @@
 /**
  * http Server Setting
  */
-import http from 'http';
-import app from './app.js';
-import createDebug from 'debug';
+import http from "http";
+import app from "./app.js";
+import createDebug from "debug";
 
 // port number check
 const normalizePort = (val) => {
@@ -21,8 +21,7 @@ const normalizePort = (val) => {
   return false;
 };
 
-
-const debug = createDebug('node-910-readbook:server');
+const debug = createDebug("node-910-readbook-v2:server");
 const port = normalizePort(process.env.PORT || "3000");
 
 /**
@@ -30,7 +29,6 @@ const port = normalizePort(process.env.PORT || "3000");
  * http and app(express framework) integration
  */
 const server = http.createServer(app);
-
 
 server.listen(port);
 
@@ -60,10 +58,7 @@ server.on("error", (error) => {
 server.on("listening", () => {
   const addr = server.address();
   console.log(addr);
-  const bind =
-    typeof addr === "string"
-      ? `address : ${addr.address}, port : ${addr.port}`
-      : `address : ${addr.address}, port : ${addr.port}`;
+  const bind = typeof addr === "string" ? `address : ${addr.address}, port : ${addr.port}` : `address : ${addr.address}, port : ${addr.port}`;
   debug("Http Listening on " + bind);
   console.log(`Http Listening on http://localhost:${addr.port}`);
 });

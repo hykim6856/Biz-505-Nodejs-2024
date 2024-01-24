@@ -110,3 +110,9 @@ GRANT ALL PRIVILEGES ON *.* TO 'hykim6856'@'localhost'
 FLUSH PRIVILEGES;
 -- 기존에 부여된 권한을 회수하기
 REVOKE ALL PRIVILEGES ON
+*.*
+FROM 'hykim6856'@'localhost';
+
+USE bookdb2;
+DROP TABLE tbl_books;
+DESC tbl_books;
