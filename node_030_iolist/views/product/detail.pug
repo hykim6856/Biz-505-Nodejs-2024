@@ -1,0 +1,24 @@
+extends ../layout
+
+    block content 
+        h3 #{PRODUCT.p_name} 상품 자세히 보기
+        p= PRODUCT.p_code
+        p= PRODUCT.p_item
+    table.detail.iolist 
+        tr
+            th 일련번호
+            th 거래일자
+            th 거래시각
+            th 거래구분
+            th 거래처코드
+            th 거래처명
+            th 대표자명
+            each io in PRODUCT.IOS
+                tr
+                    td= io.io_seq
+                    td= io.io_date
+                    td= io.io_time
+                    td #{item.io_div == "1"? "매입":"매출"}
+                    td= io.io_dcode
+                    td= io.IO_거래처.io_dname
+                    td= io.IO_거래처.io_dceo

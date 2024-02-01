@@ -1,11 +1,26 @@
 import express from "express";
+import DB from "../models/index.js";
+const IOLIST = DB.models.tbl_iolist;
+const PRODUCTS = DB.models.tbl_products;
+const DEPTS = DB.models.tbl_depts;
 const router = express.Router();
+// const dbConn = DB.init(); /**/
 
 router.get("/", async (req, res) => {
-  return res.render("iolist/list");
+  try {
+    const rows = await IOLIST.findALL({
+      include: [
+        { model: PRODUCTS, as: "IO_상품" },
+        { model: PRODUCTS, as: "IO_거래처" },
+      ],
+    });
+    return res.render("iolist/list", { IOLIST: rows });
+  } catch (error) {
+    return res.json(error);
+  }
 });
 
-router.get("/insert", (req, res) => {
+router.get("/insert", async (req, res) => {
   const user = req.session?.user;
   if (user) {
     return res.render("iolist/input");
