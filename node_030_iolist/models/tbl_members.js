@@ -1,5 +1,4 @@
-import _sequelize from "sequelize";
-const { Model, Sequelize } = _sequelize;
+import { Model } from "sequelize";
 
 export default class tbl_members extends Model {
   static init(sequelize, DataTypes) {
@@ -36,7 +35,7 @@ export default class tbl_members extends Model {
             name: "PRIMARY",
             unique: true,
             using: "BTREE",
-            fields: [{ name: "username" }],
+            fields: [{ name: "m_username" }],
           },
         ],
       }

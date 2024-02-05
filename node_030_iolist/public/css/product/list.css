@@ -1,0 +1,67 @@
+.products {
+  width: 80%;
+  margin: 5px auto;
+  /* display: block; */
+}
+
+table.products {
+  margin: 20px auto;
+  white-space: nowrap;
+  border-collapse: collapse;
+  /* border-top: 3px solid #bbb;
+  border-bottom: 3px solid #bbb; */
+}
+
+th,
+td {
+  border-bottom: 1px solid #bbb;
+  padding: 12px 16px;
+  text-align: center;
+}
+
+th {
+  border-top: 1px solid #bbb;
+  background-color: #eee;
+}
+
+tr:hover {
+  cursor: pointer;
+  background-color: #f5f5f5;
+}
+
+th:nth-last-of-type(1),
+td:nth-last-of-type(1) {
+  border-right: none;
+}
+
+.btn_box {
+  display: flex;
+  padding: 20px 0;
+  margin-bottom: 10px;
+
+  input {
+    margin-left: auto;
+  }
+
+  button {
+    margin: 0 5px;
+    padding: 6px 12px;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.064);
+    }
+  }
+}
+button.search {
+  background-color: blue;
+  /* margin-right: 50px; */
+}
+
+button.add {
+  background-color: green;
+  margin-left: auto;
+  margin-right: 12rem;
+}

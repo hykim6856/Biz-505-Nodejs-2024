@@ -18,7 +18,7 @@ export default class tbl_products extends Model {
           allowNull: true,
         },
         p_std: {
-          type: DataTypes.STRING(20),
+          type: DataTypes.STRING(50),
           allowNull: true,
         },
         p_comp: {

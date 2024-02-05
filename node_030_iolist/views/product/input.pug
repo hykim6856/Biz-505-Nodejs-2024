@@ -1,0 +1,23 @@
+extends ../layout
+block content   
+    link(rel="stylesheet", href="/css/product/input.css")
+    script(src="/js/product/input.js")
+
+    h3.product 상품입력
+ 
+    form.input(method="POST")
+        div.container
+            input#pcode(name="pcode", placeholder="상품코드")
+            input#pcode(name="name", placeholder="상품명")
+        div.container
+            input#pitem(name="pitem", placeholder="품목")
+            input#pstd(name="pstd", placeholder="규격")
+        div.container
+            input#piprice(name="piprice", placeholder="매입단가")
+            input#poprice(name="poprice", placeholder="매출단가")
+        div.image
+            img(src='../document/image_icon.jpg', id='image-upload')
+            input#file-upload(type='file', accept='image/*', style='display: none;')
+        div.btn_box
+            button.submit(type="submit") 입력
+            button.cancle(type="reset") 취소
