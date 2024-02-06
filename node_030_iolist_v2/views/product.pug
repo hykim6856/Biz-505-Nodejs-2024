@@ -2,6 +2,8 @@ extends ../layout
 block content   
     link(rel="stylesheet", href="/css/product.css")
     script(src="/js/product/input.js")
+
+    
     form.product(method="POST", enctype="multipart/form-data")
         fieldset 
             legend 상품입력
@@ -24,7 +26,7 @@ block content
             div.img_box
                 img(src="/images/add_icon.svg",alt="사진",width="100px", height="100px")
                 input(type="file",name="p_image", accept="image/*", id="p_image")
-
+                
             div.btn_box
                 button.submit(type="submit",value="저장") 저장
                 button.cancle(type="reset", value="새로작성") 새로작성

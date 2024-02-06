@@ -3,34 +3,6 @@
   margin: 0 auto;
 }
 
-table.iolist {
-  background-color: #eee;
-  border-collapse: separate;
-  border-spacing: 0.5px;
-  border-bottom: 3px solid #bbb;
-  th,
-  td {
-    text-align: left;
-    padding: 10px 12px;
-    border: 1px solid transparent;
-    white-space: nowrap;
-    /*top, right, bottom, left 순서로 작성*/
-    border-color: white #ddd #ddd white;
-    &:nth-last-of-type(5) {
-      border-color: white #ddd #ddd white;
-    }
-  }
-  th {
-    border-top: 1px solid #ddd;
-  }
-  tr:hover {
-    background-color: #ddd !important;
-  }
-  tr:nth-last-of-type(even) {
-    background-color: #f9f9f9;
-  }
-}
-
 div.iolist.btn_box {
   text-align: right;
   a {

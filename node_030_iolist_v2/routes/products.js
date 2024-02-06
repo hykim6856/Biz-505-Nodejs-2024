@@ -36,5 +36,8 @@ router.get("/:pcode/detail", async (req, res) => {
 router.get("/insert", (req, res) => {
   return res.render("product/input");
 });
+router.post("/insert", (req, res) => {
+  return res.json(req.body);
+});
 
 export default router;

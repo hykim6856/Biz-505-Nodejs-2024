@@ -1,8 +1,14 @@
 extends ../layout
 block content   
-    link(rel="stylesheet", href="/css/product/list.css")
+    link(rel="stylesheet", href="/css/product/input.css")
     script(src="/js/product.js")
-    table.products 
+
+    form.search.products
+        input.search(type="text",name="p_search",placeholder="검색어를 입력 후 Enter")
+        input.search#btn_search(type="submit",value="조회")
+        input.insert#btn_insert(type="button",value="상품추가")
+
+    table.list.products 
         tr
             th 상품코드
             th 상품이름
@@ -18,7 +24,3 @@ block content
                 td=item.p_std
                 td=item.p_iprice
                 td=item.p_oprice
-    .btn_box 
-        input(type="text" placeholder="상품조회")
-        button.search 조회
-        button.add 상품추가
