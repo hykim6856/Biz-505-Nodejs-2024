@@ -1,0 +1,72 @@
+div.all {
+  /* border: 1px solid rebeccapurple; */
+  width: 80vw;
+  /* text-align: ; */
+  margin: 10px 20px;
+  margin: 10px auto;
+  /* display: flex; */
+  h2 {
+    margin: 5px;
+    border: 1px solid skyblue;
+    width: 50%;
+  }
+}
+div.img {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  background-color: aqua;
+}
+
+div.ele {
+  margin: 0 auto;
+  width: 50%;
+  padding: 5px;
+}
+
+div.text {
+  padding: 15px;
+  width: 80%;
+  margin-left: 20%;
+}
+
+span {
+  display: nowrap;
+  width: 10%;
+  padding: 5px 0;
+}
+div.section {
+  display: flex;
+}
+div.listbox {
+  margin: 0 auto;
+  width: 100%;
+}
+div.box {
+  display: flex;
+}
+strong {
+  padding: 5px;
+  text-align: center;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 45%;
+  margin: 0 5px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+button.edit {
+  background-color: yellowgreen;
+  color: white;
+}
+button.delete {
+  background-color: red;
+}
+
+button:hover {
+  background-color: gray;
+}
