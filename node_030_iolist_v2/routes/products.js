@@ -1,12 +1,26 @@
 import express from "express";
 import DB from "../models/index.js";
 import { upLoad } from "../modules/file_upload.js";
+import { Op } from "sequelize";
 
 const PRODUCTS = DB.models.tbl_products;
 const IOLIST = DB.models.tbl_iolist;
 const DEPTS = DB.models.tbl_depts;
 
 const router = express.Router();
+
+router.get("/", async (req, res) => {
+  const p_search = req.query.p_search || "";
+  const sort = req.query.sort || "p_code";
+  const order = req.query.order || "ASC";
+  const rows = await PRODUCTS.findAll({
+    where: {
+      [Op.or]: [{ p_name: { [Op.like]: `%${p_search}%` } }, { p_code: { [Op.like]: `%${p_search}%` } }],
+    },
+    order: [[sort, order]],
+  });
+  return res.render("product/list", { PRODUCTS: rows });
+});
 
 router.get("/", async (req, res) => {
   const rows = await PRODUCTS.findAll({
@@ -96,12 +110,6 @@ router.get("/:pcode/detail", async (req, res) => {
     },
   });
   return res.render("product/detail", { PRODUCT: row });
-});
-
-router.get("/:p_search", async (req, res) => {
-  const p_search = req.query.p_search;
-  const rows = await PRODUCTS.findAll({ where: { p_name: p_search } });
-  return res.render("product/detail", { PRODUCT: rows });
 });
 
 export default router;
