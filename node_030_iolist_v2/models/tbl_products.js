@@ -33,6 +33,14 @@ export default class tbl_products extends Model {
           type: DataTypes.INTEGER,
           allowNull: true,
         },
+        p_image_name: {
+          type: DataTypes.STRING(255),
+          allowNull: true,
+        },
+        p_image_origin_name: {
+          type: DataTypes.STRING(255),
+          allowNull: true,
+        },
       },
       {
         sequelize,
