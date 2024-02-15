@@ -32,7 +32,7 @@ router.get("/insert", async (req, res, next) => {
 });
 
 router.post("/insert", upLoad.single("m_image"), async (req, res) => {
-  return res.json({ body: req.body });
+  // return res.json({ body: req.body });
   const file = req.file;
   if (file) {
     req.body.m_image_name = file.fieldname;
