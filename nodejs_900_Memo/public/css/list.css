@@ -52,4 +52,10 @@ div.listbox {
     padding: 3px; /* 셀 내부 여백 */
     text-align: left; /* 텍스트 정렬 */
   }
+
+  td.seq{
+    display: none;
+  }
+
 }
+

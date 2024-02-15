@@ -1,0 +1,25 @@
+extend layout
+block content
+    link(rel="stylesheet", href="/css/detail.css")
+    script(src="/js/detail.js")
+    div.listbox
+        form.memolist(method="POST") 
+            div.box
+                each item in MEMOS
+                    div.ele
+                        strong 일련번호 
+                        input(type='text', name='m_seq',id='m_seq', value= item.m_seq, readonly)    
+                        strong 작성자
+                        input(type='text', name='m_author',id='m_author', value=item.m_author)    
+                    div.ele
+                        strong 작성일자
+                        input(type='text', name='m_date',id='m_date', value=item.m_date)
+                        strong 작성시각
+                        input(type='text', name='m_time',id='m_time', value=item.m_time)    
+                    div.ele
+                        strong 메모내용
+                        input(type='text', name='m_memo',id='m_memo', value=item.m_memo)    
+                    div.img 
+                        img(src=`/uploads/${item.m_image}`,width="100px", height="100px")
+                    div.btn_box
+                        button.save 저장

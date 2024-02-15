@@ -1,0 +1,26 @@
+extend layout
+block content
+    link(rel="stylesheet", href="/css/detail.css")
+    script(src="/js/detail.js")
+    div.listbox
+        div.memolist
+            div.box
+                each item in MEMOS
+                    div.ele
+                        strong 일련번호 
+                        span.seq= item.m_seq
+                        strong 작성자
+                        span= item.m_author
+                    div.ele
+                        strong 작성일자
+                        span= item.m_date
+                        strong 작성시각
+                        span= item.m_time
+                    div.ele
+                        strong 메모내용
+                        span= item.m_memo
+                    div.img
+                        img(src=`/uploads/${item.m_image}`,width="100px", height="100px")
+        div.btn_box
+            button.edit 수정
+            button.delete 삭제

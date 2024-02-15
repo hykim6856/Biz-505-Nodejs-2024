@@ -1,13 +1,9 @@
 import { DataTypes } from "sequelize";
 
-import _tbl_authors from "./tbl_authors.js";
-import _tbl_users from "./tbl_users.js";
 import _tbl_memo from "./tbl_memo.js";
 
 export default function initModels(sequelize) {
   // 모델 이름 설정
-  const tbl_authors = _tbl_authors.init(sequelize, DataTypes);
-  const tbl_users = _tbl_users.init(sequelize, DataTypes);
   const tbl_memo = _tbl_memo.init(sequelize, DataTypes);
 
   /**
@@ -21,13 +17,9 @@ export default function initModels(sequelize) {
    * sourceKey : 연결할 source 모델의 컬럼 이름
    * targetKey : 연결할 target 모델의 컬럼 이름
    */
-  tbl_authors.belongsTo(tbl_users, { as: "username_tbl_user", foreignKey: "username" });
-  tbl_users.hasMany(tbl_authors, { as: "tbl_authors", foreignKey: "username" });
 
   // 다른 곳에서 model 을 사용할수 있도록 export 준비
   return {
-    tbl_authors,
-    tbl_users,
     tbl_memo,
   };
 }

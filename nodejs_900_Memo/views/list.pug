@@ -19,10 +19,11 @@ block content
                                 tr  
                                     td.image
                                         if item.m_image
-                                            img(src=item.m_image, width="20px", height="20px")
+                                            img(src=`/uploads/${item.m_image}`, width="20px", height="20px")
                                         else
                                             img(src="/images/usericon.svg",width="20px", height="20px")
                                     td= item.m_author
+                                    td.seq= item.m_seq
                         else
                             tr
                                 td No data found
