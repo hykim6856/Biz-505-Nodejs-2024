@@ -1,0 +1,28 @@
+extend layout
+block content
+    link(rel="stylesheet", href="/css/list.css")
+    script(src="/js/list.js")
+    div.allbox
+        div.memolist
+            div.box
+                div
+                    input(type='text', name='today', value=today, readonly)
+                div
+                    input(type='text', name='now', value=now, readonly)    
+                div.newbutton
+                    a(href='/memo/insert') 새로작성
+            div.listbox
+                table.memolist
+                    tbody 
+                        if memos
+                            each item in memos
+                                tr  
+                                    td.image
+                                        if item.m_image
+                                            img(src=item.m_image, width="20px", height="20px")
+                                        else
+                                            img(src="/images/usericon.svg",width="20px", height="20px")
+                                    td= item.m_author
+                        else
+                            tr
+                                td No data found

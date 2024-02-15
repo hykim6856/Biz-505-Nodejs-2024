@@ -1,0 +1,55 @@
+div.allbox {
+  margin: 2px 8px 8px 8px;
+}
+
+/* div.memolist {
+  border: 1px solid red;
+} */
+
+div.box {
+  /* border: 1px solid red; */
+  display: flex;
+  white-space: nowrap;
+  gap: 5px;
+  div {
+    width: 30%;
+    border-radius: 3px;
+  }
+  div.newbutton {
+    background-color: #eee;
+    border: 1px solid black;
+    border-radius: 3px;
+    a {
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+    }
+  }
+  input {
+    width: 100%;
+  }
+}
+
+div.listbox {
+  /* border: 1px solid red; */
+
+  table {
+    width: 100%;
+    /* border: 1px solid red; */
+  }
+
+  td:nth-of-type(2) {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    &:hover {
+      background-color: #f5f5f5; /* 행에 마우스를 올렸을 때 배경색 변경 */
+    }
+  }
+  td:nth-of-type(1) {
+    width: 5px;
+  }
+
+  td {
+    padding: 3px; /* 셀 내부 여백 */
+    text-align: left; /* 텍스트 정렬 */
+  }
+}

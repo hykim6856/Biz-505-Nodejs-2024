@@ -1,0 +1,39 @@
+extend layout
+block content
+    link(rel="stylesheet", href="/css/list.css")
+    link(rel="stylesheet", href="/css/input.css")
+    script(src="/js/list.js")
+    script(src="/js/input.js")
+    form.memoform(method="POST",enctype="multipart/form-data") 
+        div.allbox
+            div.memolist
+                div.box
+                    div
+                        input(type='text', name='m_date',id='m_date', value=today, readonly)
+                    div
+                        input(type='text', name='m_time',id='m_time' value=now, readonly)    
+                    div.newbutton
+                        input(type="submit",value="저장")
+                div.listbox
+                    table.memolist
+                        tbody 
+                            if memos
+                                each item in memos
+                                    tr  
+                                        td.image
+                                            if item.m_image
+                                                img(src=item.m_image, width="20px", height="20px")
+                                            else
+                                                img(src="/images/usericon.svg",width="20px", height="20px")
+                                        td= item.m_author
+                            else
+                                tr
+                                    td No data found
+            div.mid
+            div.inputbox
+                div.authormemo
+                    input.author(type="text",name="m_author",id="m_author",placeholder="제목을 입력하세요")
+                    input.content(type="text",name="m_memo",id="m_author",placeholder="내용을 입력하세요")
+                div.img_box
+                    input(type="file",name="m_image",accept="image/*",id="m_image")
+
