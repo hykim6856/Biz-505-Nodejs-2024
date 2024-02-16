@@ -9,7 +9,8 @@ m_memo	VARCHAR(800)	NOT NULL	,
 m_image	VARCHAR(250)		
 		
 );
-SELECT * FROM tbl_memo;
+SELECT * FROM tbl_memos;
+drop table tbl_memos;
 
 INSERT INTO tbl_memo (m_author, m_date, m_time, m_memo)
 VALUES ('홍길동', '2024-02-15', '15:30', '샘플메모');
