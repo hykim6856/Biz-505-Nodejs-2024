@@ -11,11 +11,11 @@ block content
         input.btn_new(type="button",value="새로작성")
       ul.memo.list
         each MEMO in MEMOS
-          li.memo.item(data-seq=`${MEMO.m_seq}`)
+          li.memo.list(data-seq=`${MEMO.m_seq}`)
             if MEMO.m_image 
-              img.memo.item(src=`/images/${MEMO.m_image}`, alt="", width="20px") 
+              img.memo.list(src=`/images/${MEMO.m_image}`, alt="", width="20px") 
             else 
-              img.memo.item(src="/images/noimage.svg", alt="", width="20px") 
+              img.memo.list(src="/images/noimage.svg", alt="", width="20px") 
             span= MEMO.m_subject
     div.aside
       form.input(method="POST",enctype="multipart/form-data")
