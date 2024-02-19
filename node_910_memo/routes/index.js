@@ -35,6 +35,21 @@ router.post("/", upload.single("m_image"), async (req, res) => {
   }
 });
 
+router.post("/update/:seq", upload.single("m_image"), async (req, res) => {
+  // const seq = req.params.seq;
+  const imageFile = req.file;
+  const m_seq = req.query.seq;
+
+  req.body.m_image = imageFile?.fieldname;
+  req.body.m_author = "hykim6856@naver.com";
+  if (m_seq) {
+    await MEMOS.update(req.body, { where: { m_seq: m_seq } });
+    return res.redirect("/");
+  } else {
+    await MEMOS.create(req.body);
+  }
+});
+
 router.get("/:seq/get", async (req, res) => {
   const seq = req.params.seq;
   const row = await MEMOS.findByPk(seq);

@@ -3,10 +3,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const input_form = document.querySelector("form.input");
   const btn_save = document.querySelector("input.btn_save");
   const btn_new = document.querySelector("input.btn_new");
-  // const toDate = (date_form.querySelector("input.todate").value = json.toDate);
-  // const toTime = (date_form.querySelector("input.totime").value = json.toTime);
+  const btn_delete = document.querySelector("input.btn_delete");
+
+  //화면에 있는 input
+  const toDate = date_form.querySelector("input.todate");
+  const toTime = date_form.querySelector("input.totime");
+  const toSubject = date_form.querySelector("input.toSubject");
+  const toMemo = date_form.querySelector("input.tomemo");
+  const toImage = input_form.querySelector("img.memo.image");
 
   const memo_box = document.querySelector("ul.memo");
+
+  // memo_image.addEventListener("click", (event) => {
+  //   toImage.click();
+  // });
+  toImage.addEventListener("click", (event) => {
+    const imageFile = event.target.files[0];
+    const imageURL = (window.URL || webkitURL).createObjectURL(imageFile);
+    memo_image_src = imageURL;
+  });
 
   /**한개의 메모를 클릭하면 메모의 seq 값을 ㅏㄱ고 싶다
    * 이때 한개의 메모를 구성하는 요소들은 li,img,span tag 로 되어있다.
@@ -44,23 +59,30 @@ document.addEventListener("DOMContentLoaded", () => {
       const res = await fetch(`/${seq}/get`);
       const json = await res.json();
       console.log(json);
+
+      toDate.value = json.m_date;
+      toTime.value = json.m_time;
+      toSubject.value = json.m_subject;
+      toMemo.value = json.m_memo;
+      // btn_save 는 input tag를 사용한 button이므로
+      // value 속성을 변경하면 화면에 보이는 text 가 변경된다.
+      btn_save.value = "수정";
+      btn_save.classList.add("update");
+
+      input_form.action = `/?seq=${json.m_seq}`;
+      btn_delete.type = "button";
     }
   });
 
   btn_new.addEventListener("click", async () => {
-    try {
-      const response = await fetch("/get_new_date");
-      const json = await response.json();
-      toDate.value = json.toDate;
-      toTime.value = json.toDate;
-    } catch (error) {
-      alert("서버 통신오류");
-    }
+    document.location.reload();
   });
 
   btn_save.addEventListener("click", () => {
-    const toDate = date_form.querySelector("input.todate"); //value
-    const toTime = date_form.querySelector("input.totime"); //value
+    // const toDate = date_form.querySelector("input.todate"); //value
+    // const toTime = date_form.querySelector("input.totime"); //value
+    // const toSubject = date_form.querySelector("input.toSubject"); //value
+    // const toMemo = date_form.querySelector("input.toMemo"); //value
     // const toSubject = input_form.querySelector("input.tosubject").value;
     // const toMemo = input_form.querySelector("input.tomemo").value;
 

@@ -51,9 +51,43 @@ ul {
 form.input {
   display: flex;
   flex-direction: column;
+  align-items: center;
   input {
     width: 100%;
     padding: 5px;
     margin: 3px 0;
+    &:toimage {
+      display: none;
+    }
+  }
+  img.memo {
+    &:hover {
+      cursor: pointer;
+      height: 100px;
+      width: 120px;
+    }
+  }
+}
+
+btn_delete {
+  background-color: red;
+}
+
+input.update {
+  background-color: greenyellow;
+  color: black;
+}
+
+@media screen and (max-width: 600px) {
+  footer,
+  header,
+  section.main {
+    width: 95%;
+  }
+  section.main {
+    flex-direction: column;
+    /* div.aside:nth-of-type(1) {
+      /* order: 2; 
+    } */
   }
 }
