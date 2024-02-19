@@ -3,13 +3,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const input_form = document.querySelector("form.input");
   const btn_save = document.querySelector("input.btn_save");
   const btn_new = document.querySelector("input.btn_new");
+  const toDate = (date_form.querySelector("input.todate").value = json.toDate);
+  const toTime = (date_form.querySelector("input.totime").value = json.toTime);
+
+  const memo_list = document.querySelector("ul.memo.list");
+
+  memo_list.addEventListener("click", async (e) => {
+    const target = e.target;
+  });
 
   btn_new.addEventListener("click", async () => {
     try {
       const response = await fetch("/get_new_date");
       const json = await response.json();
-      date_form.querySelector("input.todate").value = json.toDate;
-      date_form.querySelector("input.totime").value = json.toTime;
+      toDate.value = json.toDate;
+      toTime.value = json.toDate;
     } catch (error) {
       alert("서버 통신오류");
     }
