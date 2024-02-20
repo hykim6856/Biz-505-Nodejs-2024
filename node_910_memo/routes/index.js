@@ -41,9 +41,12 @@ router.post("/", upLoad.single("m_image"), async (req, res) => {
   // }
 });
 
-// router.get("/:seq/delete", async (req,res)=>{
-//   const
-// })
+router.get("/:seq/delete", async (req, res) => {
+  const m_seq = req.params.seq;
+  const rows = await MEMOS.findByPk(m_seq);
+  await rows.destroy();
+  return res.redirect;
+});
 
 router.post("/update/:seq", upLoad.single("m_image"), async (req, res) => {
   const seq = req.params.seq;
