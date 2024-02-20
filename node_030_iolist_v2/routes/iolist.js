@@ -19,6 +19,12 @@ router.get("/", async (req, res) => {
     return res.json(error);
   }
 });
+router.get("/:io_seq/detail", async (req, res) => {});
+
+router.get("/count", async (req, res) => {
+  const rows = await IOLIST.findALL();
+  return res.json({ count: rows.length });
+});
 
 router.get("/insert", async (req, res) => {
   const user = req.session?.user;

@@ -2,6 +2,7 @@ extends ../layout
 
 block content
     link(rel="stylesheet", href="/css/iolist/list.css")
+    script(src="/js/iolist.js")
     //- h1 매입매출 정보 보기
     .iolist.btn_box
         if user
@@ -19,7 +20,7 @@ block content
                 th 거래처명
                 th 거래구분
         tbody 
-            each io in ioList
+            each io in ioList//IOLIST?
                 tr
                     td= io.io_seq
                     td= io.io_date
