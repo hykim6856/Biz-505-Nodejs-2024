@@ -1,0 +1,29 @@
+div.ele {
+  padding: 5px;
+  margin: 2px;
+  display: flex;
+}
+
+strong {
+  width: 100%;
+  white-space: nowrap;
+  flex: 1;
+  border: 1px solid #eee;
+  padding: 5px;
+  margin: 2px;
+}
+span {
+  flex: 3;
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+span.m,
+input.m {
+  flex: 7.2;
+}
+input {
+  flex: 3;
+
+  width: 80%;
+}

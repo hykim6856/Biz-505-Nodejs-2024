@@ -18,9 +18,12 @@ block content
                         span= item.m_time
                     div.ele
                         strong 메모내용
-                        span= item.m_memo
-                    div.img
-                        img(src=`/uploads/${item.m_image}`,width="100px", height="100px")
+                        span.m= item.m_memo
+                    div.image
+                        if item.m_image
+                            img(src=`/uploads/${item.m_image}`,width="100px", height="100px")
+                        else
+                            img(src="/images/usericon.svg",width="100px", height="100px")
         div.btn_box
             button.edit 수정
             button.delete 삭제

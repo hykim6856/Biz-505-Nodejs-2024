@@ -36,13 +36,14 @@ div.inputbox {
     min-height: 200px;
   }
 }
-
+/* 
 div.box {
-  /* border: 1px solid red; */
   display: flex;
   white-space: nowrap;
   gap: 5px;
+
   div {
+    flex: 1;
     width: 30%;
     border-radius: 3px;
   }
@@ -59,7 +60,7 @@ div.box {
   input {
     width: 100%;
   }
-}
+} */
 
 div.listbox {
   table {
