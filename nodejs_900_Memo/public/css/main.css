@@ -13,6 +13,16 @@ a {
   text-decoration: none;
 }
 
+section.allmain {
+  margin: 50px 30%;
+}
+
+@media screen and (max-width: 800px) {
+  section.allmain {
+    margin: 50px 10%;
+  }
+}
+
 body {
   height: 100%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;

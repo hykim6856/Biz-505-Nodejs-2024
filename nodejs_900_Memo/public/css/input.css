@@ -6,14 +6,15 @@ div.allbox {
   justify-content: center;
 }
 
-div.memopug {
+div.memolist {
+  border-right: 1px solid black;
   width: 50%;
+  padding-right: 10px;
+  margin-right: 10px;
 }
 
-div.mid {
-  height: auto;
-  border-left: 1px solid black;
-  margin: 0 4px;
+div.memopug {
+  width: 50%;
 }
 
 div.inputbox {
@@ -23,13 +24,16 @@ div.inputbox {
   width: 40%;
   /* border: 1px solid rebeccapurple; */
 
+  input {
+    padding: 5px;
+  }
   div.authormemo {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
   }
   input.content {
-    height: 500px;
+    min-height: 200px;
   }
 }
 
@@ -74,7 +78,7 @@ div.listbox {
   }
 
   td {
-    padding: 3px; /* 셀 내부 여백 */
+    padding: 5px; /* 셀 내부 여백 */
     text-align: left; /* 텍스트 정렬 */
   }
 }
