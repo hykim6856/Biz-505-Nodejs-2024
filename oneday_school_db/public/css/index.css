@@ -3,9 +3,28 @@ h1 {
   padding: 15px;
   margin-bottom: 20px;
 }
+div.sub,
 div.main {
   display: flex;
 }
+
+div.sub {
+  flex-direction: column;
+  width: 60%;
+  margin: 50px auto;
+}
+
+@media screen and (min-width: 800px) {
+  div.sub {
+    width: 40%;
+    /* border: 1px solid rebeccapurple; */
+  }
+  div.main {
+    width: 60%;
+    margin: auto;
+  }
+}
+
 aside {
   flex: 1;
 }
@@ -18,7 +37,7 @@ ul {
 }
 
 .list.studentBox {
-  height: 500px;
+  height: 45vh;
   overflow: auto;
 }
 
@@ -26,8 +45,13 @@ ul {
   /* background-color: wheat; */
   height: 78%;
   overflow: auto;
+  text-align: center;
 }
 
+table.list.student tr:hover {
+  background-color: #eee;
+  cursor: pointer;
+}
 table.list {
   margin: 20px auto;
   width: 75%;
@@ -41,5 +65,46 @@ table.list {
   }
   th {
     background-color: #eee;
+  }
+}
+/* div {
+  border: 1px solid red;
+} */
+.sub {
+  button,
+  select.options,
+  input {
+    height: 100%;
+    padding: 9px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    margin: 5px;
+  }
+  select,
+  input {
+    width: 50%;
+  }
+  .subjectform {
+    input,
+    select {
+      display: block;
+    }
+
+    button {
+      margin-top: 20px;
+      margin-left: 40%;
+    }
+  }
+  button.search,
+  button.save {
+    padding: 7px 20px;
+    background-color: rgb(102, 171, 236);
+    color: white;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: #aaa;
+    }
   }
 }

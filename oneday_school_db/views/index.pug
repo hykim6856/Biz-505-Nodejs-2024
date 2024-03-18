@@ -11,10 +11,10 @@ block content
           tr 
             th 학번
             th 이름
-            each item in STUDENTS
-              tr 
-                td= item.s_code
-                td= item.s_name
+              each item in STUDENTS
+                tr 
+                  td= item.s_code
+                  td= item.s_name
     aside.rightBox
       div.detail
         ul.detailList 
@@ -46,3 +46,29 @@ block content
               tr
                 td
                 td
+  div.sub
+    div.nameinput
+      form.name(action="/detail" method="post")
+        input(type="text" list="names" placeholder="이름을 입력하세요" name="s_name")
+        datalist(id="names")
+          each option in STUDENTS
+            option(value=option.s_name)
+        button.search(type="submit" ) 검색
+    div.detail
+      ul.detailList 
+        if STUDENTDETAIL && STUDENTDETAIL.length > 0
+          each item in STUDENTDETAIL
+            li 학번: #{item.s_code}
+            li 학과: #{item.s_dept}
+            li 학년: #{item.s_grade}학년
+            li 전화번호: #{item.s_tel}
+            li 주소: #{item.s_address}
+        else
+    form.subject(method="post") 
+      div.subjectform
+        select.options
+          if SUBJECTS && SUBJECTS.length > 0
+            each option in SUBJECTS
+              option(value= option.n_subject )= option.n_subject
+        input(type="text" placeholder="점수를 입력하세요")
+        button.save(type="submit" ) 저장
