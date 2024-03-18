@@ -1,0 +1,45 @@
+h1 {
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+div.main {
+  display: flex;
+}
+aside {
+  flex: 1;
+}
+aside.leftBox {
+  border-right: 1px solid #bbb;
+}
+
+ul {
+  margin-left: 15%;
+}
+
+.list.studentBox {
+  height: 500px;
+  overflow: auto;
+}
+
+.list.detailBox {
+  /* background-color: wheat; */
+  height: 78%;
+  overflow: auto;
+}
+
+table.list {
+  margin: 20px auto;
+  width: 75%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    height: 100%;
+    padding: 5px;
+    border: 1px solid #bbb;
+  }
+  th {
+    background-color: #eee;
+  }
+}

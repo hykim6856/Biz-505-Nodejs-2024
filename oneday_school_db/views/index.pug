@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  link(rel="stylesheet", href="/css/index.css")
+  script(src="/js/index.js")
+  h1 청춘대한 소프트웨어 공학과
+  div.main 
+    aside.leftBox 
+      div.list.studentBox
+        table.list.student
+          tr 
+            th 학번
+            th 이름
+            each item in STUDENTS
+              tr 
+                td= item.s_code
+                td= item.s_name
+    aside.rightBox
+      div.detail
+        ul.detailList 
+          if STUDENTDETAIL && STUDENTDETAIL.length > 0
+            each item in STUDENTDETAIL
+              li 학번: #{item.s_code}
+              li 학과: #{item.s_dept}
+              li 학년: #{item.s_grade}학년
+              li 전화번호: #{item.s_tel}
+              li 주소: #{item.s_address}
+          else
+            li 학번: 
+            li 학과: 
+            li 학년: 
+            li 전화번호: 
+            li 주소: 
+
+      div.list.detailBox
+        table.list.test
+          tr 
+            th 과목명
+            th 점수
+            if TESTS && TESTS.length > 0
+              each item in TESTS
+                tr 
+                  td= item.t_subject
+                  td= item.t_score
+            else
+              tr
+                td
+                td
